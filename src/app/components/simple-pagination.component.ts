@@ -13,6 +13,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class SimplePaginationComponent {
 	@Input() pageCount: number;
 	@Input() page : number;
+	@Input() previousText = 'Previous';
+	@Input() nextText = 'Next';
 	@Output() pageChanged = new EventEmitter<number>();
 
 	nextPage(){
