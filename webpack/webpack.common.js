@@ -12,7 +12,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: [".ts", ".js"]
+		extensions: [".ts", ".js", ".tsx"]
 	},
 
 	module: {
@@ -32,9 +32,20 @@ module.exports = {
 			{
 				test: /\.ts$/,
 				loaders: ["awesome-typescript-loader"]
+			},
+			{
+				enforce: 'pre',
+				test: /\.js$/,
+				loader: "source-map-loader"
+			},
+			{
+				enforce: 'pre',
+				test: /\.tsx?$/,
+				use: "source-map-loader"
 			}
 		]
 	},
+	devtool: 'inline-source-map',
 
 	plugins: [
 		new webpack.optimize.CommonsChunkPlugin({
